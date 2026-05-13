@@ -1,0 +1,11 @@
+Subject,Body,Is Phishing,Risk Level,Phishing Score
+Urgent: Verify your bank account,Click here to verify your password and win a prize!,True,email_url.high,0.95
+Limited offer: Claim your prize now,Click here to verify your password and win a prize!,N/A,N/A,N/A
+Action required: Confirm your identity,Claim your free gift by clicking here.,False,N/A,N/A
+Important: Update your payment info,Claim your free gift by clicking here.,False,high,0.65
+Limited offer: Claim your prize now,Please confirm your identity to secure your account.,True,low,0.95
+Limited offer: Claim your prize now,"Your account has been compromised, click here.",False,email_url.medium,0.95
+Urgent: Verify your bank account,Click here to verify your password and win a prize!,True,email_url.medium,0.75
+Action required: Confirm your identity,Please confirm your identity to secure your account.,False,email_url.high,0.85
+Congratulations! You've won a free gift,Please confirm your identity to secure your account.,True,email_url.medium,0.95
+Limited offer: Claim your prize now,Update your bank account details immediately.,False,email_url.medium,0.85

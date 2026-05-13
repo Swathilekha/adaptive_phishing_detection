@@ -1,0 +1,9 @@
+Email Subject,Email Body,Is Phishing,Email Risk Level,URL SSL Status,URL Structure,URL Length,URL Phishing Score,URL Risk Level
+Urgent: Verify your bank account,Click here to verify your password and win a prize!,True,email_url.high,email_url.ssl_no,email_url.struct_ip,100,0.95,email_url.high
+Important: Update your payment info,Claim your free gift by clicking here.,False,high,email_url.ssl_no,email_url.struct_ip,80,0.65,email_url.low
+Limited offer: Claim your prize now,Please confirm your identity to secure your account.,True,low,email_url.ssl_yes,email_url.struct_https,80,0.95,email_url.low
+Limited offer: Claim your prize now,"Your account has been compromised, click here.",False,email_url.medium,email_url.ssl_yes,email_url.struct_domain,120,0.95,email_url.medium
+Urgent: Verify your bank account,Click here to verify your password and win a prize!,True,email_url.medium,email_url.ssl_yes,email_url.struct_domain,50,0.75,email_url.medium
+Action required: Confirm your identity,Please confirm your identity to secure your account.,False,email_url.high,email_url.ssl_no,email_url.struct_https,60,0.85,email_url.high
+Congratulations! You've won a free gift,Please confirm your identity to secure your account.,True,email_url.medium,email_url.ssl_yes,email_url.struct_ip,120,0.95,email_url.high
+Limited offer: Claim your prize now,Update your bank account details immediately.,False,email_url.medium,email_url.ssl_no,email_url.struct_domain,50,0.85,email_url.high

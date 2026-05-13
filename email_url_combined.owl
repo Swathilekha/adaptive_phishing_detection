@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://example.org/email_url.owl"
+         xmlns="http://example.org/email_url.owl#">
+
+<owl:Ontology rdf:about="http://example.org/email_url.owl"/>
+
+<owl:ObjectProperty rdf:about="#hasURL">
+  <rdfs:domain rdf:resource="#Email"/>
+  <rdfs:range rdf:resource="#URL"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasSSLStatus">
+  <rdfs:domain rdf:resource="#URL"/>
+  <rdfs:range rdf:resource="#SSLStatus"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasStructure">
+  <rdfs:domain rdf:resource="#URL"/>
+  <rdfs:range rdf:resource="#URLStructure"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasRiskLevel">
+  <rdfs:domain rdf:resource="#URL"/>
+  <rdfs:range rdf:resource="#RiskLevel"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#emailRisk">
+  <rdfs:domain rdf:resource="#Email"/>
+  <rdfs:range rdf:resource="#RiskLevel"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#containsWord">
+  <rdfs:domain rdf:resource="#Email"/>
+  <rdfs:range rdf:resource="#SuspiciousWord"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#hasLength">
+  <rdfs:domain rdf:resource="#URL"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasPhishingScore">
+  <rdfs:domain rdf:resource="#URL"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasSubject">
+  <rdfs:domain rdf:resource="#Email"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasBody">
+  <rdfs:domain rdf:resource="#Email"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#isPhishing">
+  <rdfs:domain rdf:resource="#Email"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Email">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#URL">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SSLStatus">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#URLStructure">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#RiskLevel">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SuspiciousWord">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#ssl_no">
+  <rdf:type rdf:resource="#SSLStatus"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#struct_ip">
+  <rdf:type rdf:resource="#URLStructure"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#high">
+  <rdf:type rdf:resource="#RiskLevel"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#bank">
+  <rdf:type rdf:resource="#SuspiciousWord"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#urgent">
+  <rdf:type rdf:resource="#SuspiciousWord"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#prize">
+  <rdf:type rdf:resource="#SuspiciousWord"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#password">
+  <rdf:type rdf:resource="#SuspiciousWord"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#click">
+  <rdf:type rdf:resource="#SuspiciousWord"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#verify">
+  <rdf:type rdf:resource="#SuspiciousWord"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#email_phishing">
+  <rdf:type rdf:resource="#Email"/>
+  <containsWord rdf:resource="#bank"/>
+  <containsWord rdf:resource="#urgent"/>
+  <containsWord rdf:resource="#password"/>
+  <containsWord rdf:resource="#prize"/>
+  <hasURL rdf:resource="#phishy_url"/>
+  <emailRisk rdf:resource="#high"/>
+  <hasSubject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Urgent: Verify your bank account</hasSubject>
+  <hasBody rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Click here to verify your password and win a prize!</hasBody>
+  <isPhishing rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isPhishing>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#phishy_url">
+  <rdf:type rdf:resource="#URL"/>
+  <hasSSLStatus rdf:resource="#ssl_no"/>
+  <hasStructure rdf:resource="#struct_ip"/>
+  <hasRiskLevel rdf:resource="#high"/>
+  <hasLength rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</hasLength>
+  <hasPhishingScore rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.95</hasPhishingScore>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>
